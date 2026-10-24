@@ -78,7 +78,7 @@ Date filters use `consumedAt`. Date-only `to` includes the whole day.
 - One food-entry document per item (not a nested day/meal array).
 - Meal types: `breakfast`, `lunch`, `dinner`, `snack`.
 - Units: `g`, `ml`, `serving`, `piece`.
-- Micros are optional and default to 0.
+- Micros are optional. A missing value is stored as `null` and is not treated as zero. A stored `0` is a real measurement.
 - Reports are computed from meals + current goals (no summary collection).
 - Image extract uploads the photo, then pre-fills JSON. Save with `POST /api/meals`, `source: "ai_photo"`, and the returned `imagePublicId`.
 - PDF extract uploads the file, stores it on an import job, and returns rows. Save each row with `POST /api/meals` and `source: "pdf_import"`.
